@@ -1,0 +1,12 @@
+{
+  "name": "01-es6",
+  "version": "1.0.0",
+  "description": "A simple Node.js practice project.",
+  "license": "ISC",
+  "author": "Bozhidara Partenova",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
