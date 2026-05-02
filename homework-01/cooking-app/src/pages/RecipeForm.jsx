@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router';
 
 const RecipeForm = () => {
+    const { id } = useParams();
     const navigate = useNavigate();
-    const [error, setError] = useState('');
-
     const user = JSON.parse(sessionStorage.getItem('loggedUser'));
 
     const [recipeData, setRecipeData] = useState({
@@ -17,6 +16,35 @@ const RecipeForm = () => {
         tags: ''
     });
 
+    useEffect(() => {
+        if (id) {
+            fetch(`http://localhost:4000/recipes/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setRecipeData({
+                        ...data,
+                        ingredients: data.ingredients ? data.ingredients.join(', ') : '',
+                        tags: data.tags ? data.tags.join(', ') : ''
+                    });
+                })
+                .catch(err => console.error("Error loading recipe:", err));
+        }
+    }, [id]);
+
+    useEffect(() => {
+        if (!id) {
+            setRecipeData({
+                title: '',
+                shortDescription: '',
+                cookingTime: 0,
+                ingredients: '',
+                image: '',
+                detailedDescription: '',
+                tags: ''
+            });
+        }
+    }, [id]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setRecipeData({ ...recipeData, [name]: value });
@@ -25,59 +53,91 @@ const RecipeForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const ingredientsArr = recipeData.ingredients.split(', ').map(i => i.trim());
-        const tagsArr = recipeData.tags.split(', ').map(t => t.trim());
+        const ingredientsArray = recipeData.ingredients.split(',').map(i => i.trim());
+        const tagsArray = recipeData.tags.split(',').map(t => t.trim());
 
-        const newRecipe = {
-            id: Math.random().toString(36).substring(2, 9),
+        const finalRecipe = {
+            ...recipeData,
             userId: user.id,
-            title: recipeData.title,
-            shortDescription: recipeData.shortDescription,
-            cookingTime: parseInt(recipeData.cookingTime),
-            ingredients: ingredientsArr,
-            image: recipeData.image,
-            detailedDescription: recipeData.detailedDescription,
-            tags: tagsArr,
-            datePublished: new Date().toISOString(),
+            ingredients: ingredientsArray,
+            tags: tagsArray,
             dateModified: new Date().toISOString()
         };
 
+        if (!id) {
+            finalRecipe.id = Math.random().toString(36).substring(2, 9);
+            finalRecipe.datePublished = new Date().toISOString();
+        }
+
+        const url = id ? `http://localhost:4000/recipes/${id}` : 'http://localhost:4000/recipes';
+        const method = id ? 'PUT' : 'POST';
+
         try {
-            const response = await fetch('http://localhost:4000/recipes', {
-                method: 'POST',
+            const response = await fetch(url, {
+                method: method,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newRecipe)
+                body: JSON.stringify(finalRecipe)
             });
 
             if (response.ok) {
                 navigate('/recipes');
             }
-        }
-        catch (error) {
-            setError('Could not add the recipe.')
+        } catch (error) {
+            alert("Error connecting the server.");
         }
     };
 
-    if (!user) return <h2>Login or register to add recipes.</h2>;
+    if (!user) return <h2 style={{ textAlign: 'center' }}>Please login.</h2>;
 
     return (
-        <div style={{ maxWidth: '600px', margin: 'auto' }}>
-            <h2>New Recipe</h2>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <input name="title" placeholder="Recipe name" maxLength="80" onChange={handleChange} required />
-                <textarea name="shortDescription" placeholder="Short description" maxLength="256" onChange={handleChange} required />
-                <input name="cookingTime" type="number" placeholder="Time" onChange={handleChange} required />
-                <input name="ingredients" placeholder="Ingredients" onChange={handleChange} required />
-                <input name="image" placeholder="Image" onChange={handleChange} required />
-                <textarea name="detailedDescription" placeholder="Description" maxLength="2048" onChange={handleChange} required />
-                <input name="tags" placeholder="tags" onChange={handleChange} required />
+        <div style={{ maxWidth: '600px', margin: '40px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '10px' }}>
+            <h2 style={{ textAlign: 'center' }}>{id ? "📝 Edit recipe" : "🍳 Add new recipe"}</h2>
 
-                <button type="submit" style={{ padding: '10px', background: 'green', color: 'white', border: 'none' }}>
-                    Share
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <div>
+                    <label>Recipe name:</label>
+                    <input name="title" value={recipeData.title} onChange={handleChange} required style={inputStyle} />
+                </div>
+
+                <div>
+                    <label>Short description:</label>
+                    <textarea name="shortDescription" value={recipeData.shortDescription} onChange={handleChange} required style={inputStyle} />
+                </div>
+
+                <div>
+                    <label>Time (min):</label>
+                    <input name="cookingTime" type="number" value={recipeData.cookingTime} onChange={handleChange} required style={inputStyle} />
+                </div>
+
+                <div>
+                    <label>Products (comma seperated):</label>
+                    <input name="ingredients" value={recipeData.ingredients} onChange={handleChange} required style={inputStyle} />
+                </div>
+
+                <div>
+                    <label>Image URL:</label>
+                    <input name="image" value={recipeData.image} onChange={handleChange} required style={inputStyle} />
+                </div>
+
+                <div>
+                    <label>Instructions:</label>
+                    <textarea name="detailedDescription" value={recipeData.detailedDescription} onChange={handleChange} required style={{ ...inputStyle, height: '100px' }} />
+                </div>
+
+                <div>
+                    <label>Tags (comma seperated):</label>
+                    <input name="tags" value={recipeData.tags} onChange={handleChange} required style={inputStyle} />
+                </div>
+
+                <button type="submit" style={id ? editBtnStyle : addBtnStyle}>
+                    {id ? "Save changes" : "Share"}
                 </button>
             </form>
         </div>
     );
 };
 
+const inputStyle = { width: '100%', padding: '8px', marginTop: '5px', borderRadius: '4px', border: '1px solid #ccc' };
+const addBtnStyle = { padding: '12px', background: '#28a745', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' };
+const editBtnStyle = { ...addBtnStyle, background: '#fd7e14' };
 export default RecipeForm;

@@ -20,7 +20,7 @@ const Navbar = () => {
             {user ? (
                 <>
                     <Link to="/add-recipe">Add recipe</Link>
-                    <Link to="/manage-recipes">Manage recipes</Link>
+                    <Link to="/manage-recipe">Manage recipes</Link>
                     <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>
                         Hello, {user.name}! ({user.role})
                     </span>

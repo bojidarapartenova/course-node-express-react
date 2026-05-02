@@ -19,7 +19,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/add-recipe" element={<RecipeForm />} />
         <Route path="/recipes" element={<RecipeList />} />
-        <Route path="/manage-recipes" element={<ManageRecipes />} />
+        <Route path="/manage-recipe" element={<ManageRecipes />} />
+        <Route path="/edit-recipe/:id" element={<RecipeForm />} />
       </Routes>
     </div>
   );
