@@ -1,17 +1,30 @@
 {
   "users": [
     {
-      "name": "Божидара Партенова",
+      "name": "Божидара",
       "username": "bpartenova",
       "password": "pass123!",
       "gender": "female",
-      "role": "user",
+      "role": "admin",
       "image": "default-female-avatar.png",
       "description": "",
       "status": "active",
       "id": "yC7w_D_8IvM",
       "registrationDate": "2026-05-02T18:28:24.607Z",
       "modificationDate": "2026-05-02T18:28:24.607Z"
+    },
+    {
+      "name": "NewUser",
+      "username": "newuser",
+      "password": "user123!",
+      "gender": "male",
+      "role": "user",
+      "image": "default-male-avatar.png",
+      "description": "",
+      "status": "active",
+      "id": "-FUnPLPC2ik",
+      "registrationDate": "2026-05-02T20:47:40.223Z",
+      "modificationDate": "2026-05-02T20:47:40.223Z"
     }
   ],
   "recipes": [

@@ -7,7 +7,22 @@ const Navbar = () => {
     const userJson = sessionStorage.getItem('loggedUser');
     const user = userJson ? JSON.parse(userJson) : null;
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        const user = JSON.parse(sessionStorage.getItem('loggedUser'));
+
+        if (user) {
+            try {
+                const updatedUser = { ...user, status: 'deactivated' };
+
+                await fetch(`http://localhost:4000/users/${user.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedUser)
+                });
+            } catch (err) {
+                console.error("Неуспешно деактивиране:", err);
+            }
+        }
         sessionStorage.removeItem('loggedUser');
         navigate('/login');
     };
@@ -20,7 +35,14 @@ const Navbar = () => {
             {user ? (
                 <>
                     <Link to="/add-recipe">Add recipe</Link>
-                    <Link to="/manage-recipe">Manage recipes</Link>
+
+                    {user && user.role === 'admin' && (
+                        <>
+                            <Link to="/manage-users">Users</Link>
+                            <Link to="/manage-recipes">Recipes</Link>
+                        </>
+                    )}
+
                     <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>
                         Hello, {user.name}! ({user.role})
                     </span>

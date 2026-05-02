@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -7,57 +7,51 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setCredentials({ ...credentials, [name]: value });
+        setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
 
-    const handleLogin = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
         try {
-            const response = await fetch(`http://localhost:4000/users?username=${credentials.username}`);
-            const users = await response.json();
+            const res = await fetch(`http://localhost:4000/users?username=${credentials.username}&password=${credentials.password}`);
+            const data = await res.json();
 
-            if (users.length > 0) {
-                const user = users[0];
+            if (data.length > 0) {
+                const user = data[0];
 
-                if (user.password == credentials.password) {
-                    sessionStorage.setItem('loggedUser', JSON.stringify(user));
-                    navigate('/');
+                if (user.status === 'suspended') {
+                    setError('Your profile was suspended.');
+                    return;
                 }
-                else {
-                    setError('Wrong password.');
-                }
+
+                const activatedUser = { ...user, status: 'active' };
+                await fetch(`http://localhost:4000/users/${user.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(activatedUser)
+                });
+
+                sessionStorage.setItem('loggedUser', JSON.stringify(activatedUser));
+                navigate('/');
+                window.location.reload();
+            } else {
+                setError('Wrong username or password.');
             }
-            else {
-                setError('User not found.');
-            }
-        }
-        catch (error) {
-            setError('Connection failed.');
+        } catch (err) {
+            setError('Error connecting to server.');
         }
     };
 
     return (
-        <div style={{ maxWidth: '400px', margin: '50px auto' }}>
+        <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
             <h2>Login</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <input
-                    name="username"
-                    placeholder="Username"
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                    required
-                />
-                <button type="submit">Login</button>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <input name="username" placeholder="Username" onChange={handleChange} required />
+                <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+                <button type="submit" style={{ padding: '10px', background: '#28a745', color: 'white', border: 'none', cursor: 'pointer' }}>Login</button>
             </form>
         </div>
     );
