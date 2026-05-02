@@ -1,4 +1,19 @@
 {
-    "users": [],
-    "recipes": []
+    "users": [
+        {
+            "name": "Божидара Партенова",
+            "username": "bpartenova",
+            "password": "pass123!",
+            "gender": "female",
+            "role": "user",
+            "image": "default-female-avatar.png",
+            "description": "",
+            "status": "active",
+            "id": "yC7w_D_8IvM",
+            "registrationDate": "2026-05-02T18:28:24.607Z",
+            "modificationDate": "2026-05-02T18:28:24.607Z"
+        }
+    ],
+    "recipes": [],
+    "$schema": "./node_modules/json-server/schema.json"
 }

@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const Home = () => <div>Home</div>;
-const Login = () => <div>Login</div>;
 
 function App() {
   return (
