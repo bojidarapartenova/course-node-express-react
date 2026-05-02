@@ -1,59 +1,40 @@
 {
-  "users": [
-    {
-      "name": "Божидара Партенова",
-      "username": "bpartenova",
-      "password": "pass123!",
-      "gender": "female",
-      "role": "user",
-      "image": "default-female-avatar.png",
-      "description": "",
-      "status": "active",
-      "id": "yC7w_D_8IvM",
-      "registrationDate": "2026-05-02T18:28:24.607Z",
-      "modificationDate": "2026-05-02T18:28:24.607Z"
-    }
-  ],
-  "recipes": [
-    {
-      "id": "qO-N4gDRcuw",
-      "userId": "yC7w_D_8IvM",
-      "title": "cake",
-      "shortDescription": "sweet",
-      "cookingTime": 10,
-      "ingredients": [
-        "first",
-        "second"
-      ],
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV3Vl_cGOlh2BnQ_l9XehxlYXU1iAU64Mr2HL8dPVTsk0peXADsNNuw4b4GpODhuIPVIGetylRbPa25YjwK36ACSIK0mJv6K-RTwF70AhL8g&s=10",
-      "detailedDescription": "my first recipe",
-      "tags": [
-        "cake",
-        "sweet",
-        "yummy"
-      ],
-      "datePublished": "2026-05-02T19:17:05.438Z",
-      "dateModified": "2026-05-02T19:17:05.438Z"
-    },
-    {
-      "id": "OcQQlpMqSlk",
-      "userId": "yC7w_D_8IvM",
-      "title": "tiramisu",
-      "shortDescription": "italian",
-      "cookingTime": 20,
-      "ingredients": [
-        "coffee"
-      ],
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMl_214cWYzKXdez7TxbgIEUQCOuz9qaH3MgvBz4-rcMwVLPa8IBfCGQv0WG24kEJmKD0yqCfQQUbUec7spoUvdAJ1cbY4kyOebrJBMiDN&s=10",
-      "detailedDescription": "Първата стъпка от рецептата за тирамису е подготовката на продуктите. Изваждате всички продукти от хладилника предварително, за да са на стайна температура.Сварявате силно еспресо. Добавяте 2 супени лъжици захар и 1 кафена чаша Марсала, разбърквате и оставяте на страна. Ако не можете да намерите десертното вино за готвене Марсала, може да ползвате и бадемов аператив, но по оригиналната рецепта за тирамису, сладкишът се приготвя с Марсала.\nИдва ред да приготвите крема, което е и най-тънката част от рецептата за тирамису. Разбивате жълтъците, заедно със захарта, докато сместа се сгъсти и побелее, като най-добре е да направите това с миксер. Изсипвате разбитите със захарта жълтъци в купа, добавяте 1 кафена чаша Марсала и слагате купата в тенджера с вода и разбърквате на водна баня. Идеята е жълтъците да се обработят топлинно и в сладкиша да няма сурови жълтъци. Бъркате на водна баня за около 10-12 минути, докато сместа се посгъсти. Слагате купата със сместа в друга купа със студена вода, и разбърквате, докато сместа изстине напълно! Много е важно сместа с жълтъците да е напълно изстинала, тъй като в противен случай, добавяйки сметаната и сиренето маскрапоне ще се отпуснат и сместа ще стане твърде рядка.Към изстиналата смес при непрекъснато бъркане с дървена лъжица добавяте леко разбитото сирене маскрапоне и разбитата на твърд сняг готварска сметана, докато се получи гъст гладък крем.\nНакрая трябва да сглобите сладкиша. Избирате правоъгълна тава. Топвате всяка от бишкотите в сместа с кафе за няколко секунди и и ги нареждате на дъното на тавата. Важно е да ги топите само за 2-3 секунди, защото в противен случай бишкотите ще се напоят твърде много и ще се разпаднат. Когато дъното на тавата се покрие с бишкоти разпределяте ½ от крема. Върху крема нареждате втори ред напоени бишкоти, а върху тях останалата част от крема, след което оставяте сладкиша в хладилника за 3-4 часа.Преди сервиране поръсвате тирамису обилно с какао.",
-      "tags": [
-        "italy",
-        "tiramisu",
-        "sweet"
-      ],
-      "datePublished": "2026-05-02T19:35:38.721Z",
-      "dateModified": "2026-05-02T19:35:38.721Z"
-    }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+    "users": [
+        {
+            "name": "Божидара Партенова",
+            "username": "bpartenova",
+            "password": "pass123!",
+            "gender": "female",
+            "role": "user",
+            "image": "default-female-avatar.png",
+            "description": "",
+            "status": "active",
+            "id": "yC7w_D_8IvM",
+            "registrationDate": "2026-05-02T18:28:24.607Z",
+            "modificationDate": "2026-05-02T18:28:24.607Z"
+        }
+    ],
+    "recipes": [
+        {
+            "id": "qO-N4gDRcuw",
+            "userId": "yC7w_D_8IvM",
+            "title": "cake",
+            "shortDescription": "sweet",
+            "cookingTime": 10,
+            "ingredients": [
+                "first",
+                "second"
+            ],
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV3Vl_cGOlh2BnQ_l9XehxlYXU1iAU64Mr2HL8dPVTsk0peXADsNNuw4b4GpODhuIPVIGetylRbPa25YjwK36ACSIK0mJv6K-RTwF70AhL8g&s=10",
+            "detailedDescription": "my first recipe",
+            "tags": [
+                "cake",
+                "sweet",
+                "yummy"
+            ],
+            "datePublished": "2026-05-02T19:17:05.438Z",
+            "dateModified": "2026-05-02T19:17:05.438Z"
+        }
+    ],
+    "$schema": "./node_modules/json-server/schema.json"
 }
