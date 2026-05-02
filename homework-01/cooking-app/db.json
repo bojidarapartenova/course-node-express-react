@@ -1,19 +1,40 @@
 {
-    "users": [
-        {
-            "name": "Божидара Партенова",
-            "username": "bpartenova",
-            "password": "pass123!",
-            "gender": "female",
-            "role": "user",
-            "image": "default-female-avatar.png",
-            "description": "",
-            "status": "active",
-            "id": "yC7w_D_8IvM",
-            "registrationDate": "2026-05-02T18:28:24.607Z",
-            "modificationDate": "2026-05-02T18:28:24.607Z"
-        }
-    ],
-    "recipes": [],
-    "$schema": "./node_modules/json-server/schema.json"
+  "users": [
+    {
+      "name": "Божидара Партенова",
+      "username": "bpartenova",
+      "password": "pass123!",
+      "gender": "female",
+      "role": "user",
+      "image": "default-female-avatar.png",
+      "description": "",
+      "status": "active",
+      "id": "yC7w_D_8IvM",
+      "registrationDate": "2026-05-02T18:28:24.607Z",
+      "modificationDate": "2026-05-02T18:28:24.607Z"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "qO-N4gDRcuw",
+      "userId": "yC7w_D_8IvM",
+      "title": "cake",
+      "shortDescription": "sweet",
+      "cookingTime": 10,
+      "ingredients": [
+        "first",
+        "second"
+      ],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV3Vl_cGOlh2BnQ_l9XehxlYXU1iAU64Mr2HL8dPVTsk0peXADsNNuw4b4GpODhuIPVIGetylRbPa25YjwK36ACSIK0mJv6K-RTwF70AhL8g&s=10",
+      "detailedDescription": "my first recipe",
+      "tags": [
+        "cake",
+        "sweet",
+        "yummy"
+      ],
+      "datePublished": "2026-05-02T19:17:05.438Z",
+      "dateModified": "2026-05-02T19:17:05.438Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
