@@ -52,7 +52,9 @@ const Register = () => {
             });
 
             if (response.ok) {
-                navigate('/login');
+                sessionStorage.setItem('loggedUser', JSON.stringify(newUser));
+                navigate('/');
+                window.location.reload();
             }
 
         }
