@@ -7,8 +7,7 @@ import RecipeList from "./pages/RecipeList";
 import ManageRecipes from "./pages/ManageRecipes";
 import ManageUsers from "./pages/ManageUsers";
 import UserEditForm from "./pages/UserEditForm";
-
-const Home = () => <div>Home</div>;
+import Home from "./pages/Home";
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
+import { API } from '../services/api';
 
 const Login = () => {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -15,46 +16,159 @@ const Login = () => {
         setError('');
 
         try {
-            const res = await fetch(`http://localhost:4000/users?username=${credentials.username}&password=${credentials.password}`);
-            const data = await res.json();
+            const user = await API.login(credentials.username, credentials.password);
 
-            if (data.length > 0) {
-                const user = data[0];
-
+            if (user) {
                 if (user.status === 'suspended') {
-                    setError('Your profile was suspended.');
+                    setError('Your profile is suspended.');
                     return;
                 }
 
-                const activatedUser = { ...user, status: 'active' };
-                await fetch(`http://localhost:4000/users/${user.id}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(activatedUser)
-                });
+                const updatedUser = {
+                    ...user,
+                    status: 'active',
+                    modificationDate: new Date().toISOString()
+                };
 
-                sessionStorage.setItem('loggedUser', JSON.stringify(activatedUser));
+                await API.updateUser(user.id, updatedUser);
+
+                sessionStorage.setItem('loggedUser', JSON.stringify(updatedUser));
+
                 navigate('/');
                 window.location.reload();
             } else {
                 setError('Wrong username or password.');
             }
         } catch (err) {
-            setError('Error connecting to server.');
+            setError('Error connecting to the server. Please try again.');
         }
     };
 
     return (
-        <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-            <h2>Login</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <input name="username" placeholder="Username" onChange={handleChange} required />
-                <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-                <button type="submit" style={{ padding: '10px', background: '#28a745', color: 'white', border: 'none', cursor: 'pointer' }}>Login</button>
+        <div style={formCardStyle}>
+            <h2 style={formTitleStyle}>Login</h2>
+
+            {error && <div style={errorBannerStyle}>{error}</div>}
+
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <div style={inputGroupStyle}>
+                    <label htmlFor="username" style={labelStyle}>Username:</label>
+                    <input
+                        id="username"
+                        name="username"
+                        type="text"
+                        placeholder="Enter your username"
+                        onChange={handleChange}
+                        style={inputStyle}
+                        required
+                    />
+                </div>
+
+                <div style={inputGroupStyle}>
+                    <label htmlFor="password" style={labelStyle}>Password:</label>
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Enter your password"
+                        onChange={handleChange}
+                        style={inputStyle}
+                        required
+                    />
+                </div>
+
+                <button type="submit" style={submitButtonStyle}>
+                    Login
+                </button>
             </form>
+
+            <p style={footerTextStyle}>
+                Don't have an account? <Link to="/register" style={linkStyle}>Register here</Link>
+            </p>
         </div>
     );
+};
+
+const formCardStyle = {
+    maxWidth: '450px',
+    margin: '50px auto',
+    padding: '30px 25px',
+    border: 'none',
+    borderRadius: '15px',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+    boxSizing: 'border-box'
+};
+
+const formTitleStyle = {
+    textAlign: 'center',
+    marginBottom: '25px',
+    color: '#333',
+    fontSize: '2rem',
+    fontWeight: 'bold'
+};
+
+const errorBannerStyle = {
+    backgroundColor: '#fff3f3',
+    color: '#d32f2f',
+    padding: '12px',
+    borderRadius: '6px',
+    marginBottom: '20px',
+    border: '1px solid #ffcdd2',
+    fontSize: '14px',
+    textAlign: 'center',
+    fontWeight: '500'
+};
+
+const inputGroupStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '6px'
+};
+
+const labelStyle = {
+    fontSize: '14px',
+    fontWeight: '600',
+    color: '#444',
+    textAlign: 'left'
+};
+
+const inputStyle = {
+    padding: '10px 12px',
+    borderRadius: '6px',
+    border: '1px solid #ccc',
+    fontSize: '14px',
+    backgroundColor: '#fff',
+    outline: 'none',
+    boxSizing: 'border-box',
+    width: '100%'
+};
+
+const submitButtonStyle = {
+    padding: '13px',
+    backgroundColor: '#28a745',
+    color: '#fff',
+    borderRadius: '6px',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    marginTop: '10px',
+    boxShadow: '0 4px 12px rgba(40, 167, 69, 0.3)',
+    transition: 'background-color 0.2s'
+};
+
+const footerTextStyle = {
+    marginTop: '20px',
+    textAlign: 'center',
+    fontSize: '14px',
+    color: '#666'
+};
+
+const linkStyle = {
+    color: '#007bff',
+    textDecoration: 'none',
+    fontWeight: '600'
 };
 
 export default Login;

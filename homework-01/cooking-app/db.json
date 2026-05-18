@@ -1,101 +1,386 @@
 {
   "users": [
     {
-      "name": "Божидара",
-      "username": "bpartenova",
-      "password": "pass123!",
-      "gender": "female",
+      "id": "admin-1",
+      "name": "Super Admin",
+      "username": "admin",
+      "password": "Admin123!",
+      "gender": "male",
       "role": "admin",
-      "image": "default-female-avatar.png",
-      "description": "",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "description": "Main administrator of the culinary platform.",
       "status": "active",
-      "id": "yC7w_D_8IvM",
-      "registrationDate": "2026-05-02T18:28:24.607Z",
-      "modificationDate": "2026-05-02T18:28:24.607Z"
+      "registrationDate": "2026-05-18T10:00:00.000Z",
+      "modificationDate": "2026-05-18T20:22:45.977Z"
     },
     {
-      "name": "NewUser",
-      "username": "newuser",
-      "password": "user123!",
+      "id": "user-1",
+      "name": "Ivan Ivanov",
+      "username": "ivan_ivanov",
+      "password": "Ivan1234!",
       "gender": "male",
       "role": "user",
-      "image": "default-male-avatar.png",
-      "description": "",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "description": "Amateur chef with a deep passion for traditional Balkan cuisine.",
       "status": "active",
-      "id": "-FUnPLPC2ik",
-      "registrationDate": "2026-05-02T20:47:40.223Z",
-      "modificationDate": "2026-05-02T20:47:40.223Z"
+      "registrationDate": "2026-05-18T10:15:00.000Z",
+      "modificationDate": "2026-05-18T20:22:54.117Z"
     },
     {
-      "name": "Maria",
-      "username": "maria",
-      "password": "pass123!",
+      "id": "user-2",
+      "name": "Maria Petrova",
+      "username": "maria_p",
+      "password": "Maria987!",
       "gender": "female",
       "role": "user",
-      "image": "default-female-avatar.png",
-      "description": "",
+      "image": "https://www.w3schools.com/howto/img_avatar2.png",
+      "description": "Dessert lover who bakes cakes for every possible occasion.",
       "status": "active",
-      "id": "F3kNosftzII",
-      "registrationDate": "2026-05-02T21:11:42.906Z",
-      "modificationDate": "2026-05-02T21:11:42.906Z"
+      "registrationDate": "2026-05-18T10:30:00.000Z",
+      "modificationDate": "2026-05-18T10:30:00.000Z"
+    },
+    {
+      "id": "user-3",
+      "name": "Georgi Todorov",
+      "username": "joro_chef",
+      "password": "ChefJoro1!",
+      "gender": "male",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "description": "Professional chef sharing quick and easy home recipes.",
+      "status": "active",
+      "registrationDate": "2026-05-18T11:00:00.000Z",
+      "modificationDate": "2026-05-18T11:00:00.000Z"
+    },
+    {
+      "id": "user-4",
+      "name": "Elena Dimitrova",
+      "username": "elena_d",
+      "password": "Elenka2026!",
+      "gender": "female",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar2.png",
+      "description": "Fitness enthusiast focused on healthy and balanced eating.",
+      "status": "active",
+      "registrationDate": "2026-05-18T11:20:00.000Z",
+      "modificationDate": "2026-05-18T20:00:07.044Z"
+    },
+    {
+      "id": "user-5",
+      "name": "Stefan Kolev",
+      "username": "stefan_k",
+      "password": "StefoPass1!",
+      "gender": "male",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "description": "Grillmaster and outdoor BBQ expert.",
+      "status": "suspended",
+      "registrationDate": "2026-05-18T11:45:00.000Z",
+      "modificationDate": "2026-05-18T11:45:00.000Z"
+    },
+    {
+      "id": "user-6",
+      "name": "Aneliya Stoyanova",
+      "username": "aneliya_s",
+      "password": "Aneliya55!",
+      "gender": "female",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar2.png",
+      "description": "World traveler exploring Italian and Asian culinary arts.",
+      "status": "active",
+      "registrationDate": "2026-05-18T12:00:00.000Z",
+      "modificationDate": "2026-05-18T12:00:00.000Z"
+    },
+    {
+      "id": "user-7",
+      "name": "Dimitar Popov",
+      "username": "mitko_p",
+      "password": "Mitko2026!",
+      "gender": "male",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "description": "College student sharing budget-friendly and fast meals.",
+      "status": "active",
+      "registrationDate": "2026-05-18T12:30:00.000Z",
+      "modificationDate": "2026-05-18T12:30:00.000Z"
+    },
+    {
+      "id": "user-8",
+      "name": "Petya Nikolov",
+      "username": "petya_nik",
+      "password": "PetyaPetya1!",
+      "gender": "female",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar2.png",
+      "description": "Vegan food creator designing innovative plant-based meals.",
+      "status": "active",
+      "registrationDate": "2026-05-18T13:00:00.000Z",
+      "modificationDate": "2026-05-18T13:00:00.000Z"
+    },
+    {
+      "id": "user-9",
+      "name": "Vasil Vasilev",
+      "username": "vasko_v",
+      "password": "VaskoV777!",
+      "gender": "male",
+      "role": "user",
+      "image": "https://www.w3schools.com/howto/img_avatar.png",
+      "description": "Fast food reviewer specializing in homemade burgers.",
+      "status": "active",
+      "registrationDate": "2026-05-18T13:15:00.000Z",
+      "modificationDate": "2026-05-18T13:15:00.000Z"
     }
   ],
   "recipes": [
     {
-      "id": "rhm1v5ubvgw",
-      "userId": "yC7w_D_8IvM",
-      "title": "tiramisu",
-      "shortDescription": "italian dessert",
-      "cookingTime": 20,
+      "id": "recipe-1",
+      "userId": "user-1",
+      "title": "Traditional European Moussaka",
+      "description": "A classic recipe for juicy layered minced meat and potato moussaka with a fluffy yogurt topping.",
+      "prepTime": 60,
       "ingredients": [
-        "coffee"
+        "potatoes",
+        "minced meat",
+        "onion",
+        "carrots",
+        "tomatoes",
+        "yogurt",
+        "eggs",
+        "flour"
       ],
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMl_214cWYzKXdez7TxbgIEUQCOuz9qaH3MgvBz4-rcMwVLPa8IBfCGQv0WG24kEJmKD0yqCfQQUbUec7spoUvdAJ1cbY4kyOebrJBMiDN&s=10",
-      "detailedDescription": "Първата стъпка от рецептата за тирамису е подготовката на продуктите. Изваждате всички продукти от хладилника предварително, за да са на стайна температура.Сварявате силно еспресо. Добавяте 2 супени лъжици захар и 1 кафена чаша Марсала, разбърквате и оставяте на страна. Ако не можете да намерите десертното вино за готвене Марсала, може да ползвате и бадемов аператив, но по оригиналната рецепта за тирамису, сладкишът се приготвя с Марсала.\nИдва ред да приготвите крема, което е и най-тънката част от рецептата за тирамису. Разбивате жълтъците, заедно със захарта, докато сместа се сгъсти и побелее, като най-добре е да направите това с миксер. Изсипвате разбитите със захарта жълтъци в купа, добавяте 1 кафена чаша Марсала и слагате купата в тенджера с вода и разбърквате на водна баня. Идеята е жълтъците да се обработят топлинно и в сладкиша да няма сурови жълтъци. Бъркате на водна баня за около 10-12 минути, докато сместа се посгъсти. Слагате купата със сместа в друга купа със студена вода, и разбърквате, докато сместа изстине напълно! Много е важно сместа с жълтъците да е напълно изстинала, тъй като в противен случай, добавяйки сметаната и сиренето маскрапоне ще се отпуснат и сместа ще стане твърде рядка.Към изстиналата смес при непрекъснато бъркане с дървена лъжица добавяте леко разбитото сирене маскрапоне и разбитата на твърд сняг готварска сметана, докато се получи гъст гладък крем.\nНакрая трябва да сглобите сладкиша. Избирате правоъгълна тава. Топвате всяка от бишкотите в сместа с кафе за няколко секунди и и ги нареждате на дъното на тавата. Важно е да ги топите само за 2-3 секунди, защото в противен случай бишкотите ще се напоят твърде много и ще се разпаднат. Когато дъното на тавата се покрие с бишкоти разпределяте ½ от крема. Върху крема нареждате втори ред напоени бишкоти, а върху тях останалата част от крема, след което оставяте сладкиша в хладилника за 3-4 часа.Преди сервиране поръсвате тирамису обилно с какао.",
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=500",
+      "detailedDescription": "Sauté the chopped onion, carrots, and minced meat. Mix with diced potatoes and rich seasoning. Bake in the oven, and cover with a traditional egg-and-yogurt topping during the last 10 minutes until golden brown.",
       "tags": [
-        "italy",
-        "tiramisu",
-        "sweet"
+        "moussaka",
+        "main",
+        "traditional",
+        "potatoes"
       ],
-      "datePublished": "2026-05-02T19:52:37.258Z",
-      "dateModified": "2026-05-02T20:00:07.489Z"
+      "dateShared": "2026-05-18T10:20:00.000Z",
+      "modificationDate": "2026-05-18T10:20:00.000Z"
     },
     {
-      "title": "Cake",
-      "shortDescription": "sweet chocolate cake",
-      "cookingTime": "120",
+      "id": "recipe-2",
+      "userId": "user-2",
+      "title": "Homemade Ultimate Chocolate Cake",
+      "description": "A rich, moist, and indulgent chocolate cake layered with ganache, perfect for birthdays.",
+      "prepTime": 90,
       "ingredients": [
-        "chocolate",
-        "cream"
+        "flour",
+        "sugar",
+        "cocoa powder",
+        "eggs",
+        "milk",
+        "chocolate spread",
+        "butter"
       ],
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV3Vl_cGOlh2BnQ_l9XehxlYXU1iAU64Mr2HL8dPVTsk0peXADsNNuw4b4GpODhuIPVIGetylRbPa25YjwK36ACSIK0mJv6K-RTwF70AhL8g&s=10",
-      "detailedDescription": "Prep. Preheat the oven to 350º F. Prepare two 9-inch cake pans by spraying them with baking spray or buttering and lightly flouring them. You can also spread the pans with my homemade chocolate cake goop (pan release).\n\nWhisk dry ingredients. Add flour, sugar, cocoa, baking powder, baking soda, salt and espresso powder to a large bowl or the bowl of a stand mixer. Whisk through to combine or, using your paddle attachment, stir through flour mixture until combined well.\n\nMix in wet ingredients. Add milk, vegetable oil, eggs, and vanilla to flour mixture and mix together on medium speed until well combined. Reduce speed and carefully add boiling water to the cake batter until well combined.\n\nBake. Distribute cake batter evenly between the two prepared cake pans. Bake for 30-35 minutes, until a toothpick or cake tester inserted in the center of the chocolate cake comes out clean.\n\nFrost. Remove from the oven and allow to cool for about 10 minutes, remove from the pan and cool completely. Frost with Chocolate Buttercream Frosting.",
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500",
+      "detailedDescription": "Bake the sponge layers from scratch. Whip up a velvety cream frosting using butter and rich dark chocolate. Assemble by syruping the cake layers, then refrigerate for at least 4 hours before slicing.",
       "tags": [
         "cake",
+        "dessert",
+        "chocolate",
         "sweet"
       ],
-      "userId": "yC7w_D_8IvM",
-      "dateModified": "2026-05-02T20:07:33.474Z",
-      "id": "w__WsFcfxCE",
-      "datePublished": "2026-05-02T20:07:33.474Z"
+      "dateShared": "2026-05-18T10:45:00.000Z",
+      "modificationDate": "2026-05-18T10:45:00.000Z"
     },
     {
-      "title": "new recipe",
-      "shortDescription": "yummy",
-      "cookingTime": "10",
+      "id": "recipe-3",
+      "userId": "user-3",
+      "title": "Authentic Roman Pasta Carbonara",
+      "description": "A true Italian classic boasting a creamy emulsion of eggs, pecorino cheese, and crispy guanciale.",
+      "prepTime": 25,
       "ingredients": [
-        "love"
+        "spaghetti",
+        "pancetta",
+        "egg yolks",
+        "pecorino romano",
+        "black pepper"
       ],
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg2WtCT6hOdg8ZLjlryd-QmXaD_7EygeXbcLvMaFcYGleTCtlnBaV7NYej9MNMXA5j9uiruFaXjpHD4PnkUqZF8dBoIoZR7IHWDVxVP64L&s=10",
-      "detailedDescription": "hi",
+      "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=500",
+      "detailedDescription": "Boil the pasta until perfectly al dente. Crisp up the pancetta in a pan. Whisk egg yolks with grated Pecorino. Combine everything off the heat, adding starchy pasta water to create a rich, silky sauce without cream.",
       "tags": [
-        "pizza",
-        "italy"
+        "pasta",
+        "italian",
+        "quick",
+        "dinner"
       ],
-      "userId": "rww9s8p",
-      "dateModified": "2026-05-02T21:13:43.941Z",
-      "id": "zt1BoQdqrtk",
-      "datePublished": "2026-05-02T21:13:43.941Z"
+      "dateShared": "2026-05-18T11:10:00.000Z",
+      "modificationDate": "2026-05-18T11:10:00.000Z"
+    },
+    {
+      "id": "recipe-4",
+      "userId": "user-4",
+      "title": "Fresh Avocado & Quinoa Salad",
+      "description": "A nutrient-dense, refreshing dietary salad packed with clean plant proteins and healthy fats.",
+      "prepTime": 15,
+      "ingredients": [
+        "quinoa",
+        "avocado",
+        "cherry tomatoes",
+        "cucumber",
+        "olive oil",
+        "lemon juice"
+      ],
+      "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=500",
+      "detailedDescription": "Boil the quinoa and let it cool completely. Toss with freshly diced cucumbers, ripe avocados, and cherry tomatoes. Drizzle generously with an organic lemon and extra virgin olive oil vinaigrette.",
+      "tags": [
+        "salad",
+        "healthy",
+        "quinoa",
+        "vegan"
+      ],
+      "dateShared": "2026-05-18T11:35:00.000Z",
+      "modificationDate": "2026-05-18T11:35:00.000Z"
+    },
+    {
+      "id": "recipe-5",
+      "userId": "user-6",
+      "title": "Classic Chicken Tikka Masala",
+      "description": "Tender pieces of marinated grilled chicken smothered in a creamy, aromatic spiced tomato sauce.",
+      "prepTime": 45,
+      "ingredients": [
+        "chicken breast",
+        "yogurt",
+        "garam masala",
+        "tomatoes",
+        "heavy cream",
+        "ginger",
+        "garlic"
+      ],
+      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500",
+      "detailedDescription": "Marinate the chicken cubes in a spiced yogurt blend. Sear them on high heat, then simmer them gently inside a rich gravy composed of tomato purée, fragrant ginger-garlic paste, and heavy whipping cream.",
+      "tags": [
+        "indian",
+        "chicken",
+        "spicy",
+        "exotic"
+      ],
+      "dateShared": "2026-05-18T12:15:00.000Z",
+      "modificationDate": "2026-05-18T12:15:00.000Z"
+    },
+    {
+      "id": "recipe-6",
+      "userId": "user-7",
+      "title": "Quick Student Egg Scramble",
+      "description": "An incredibly cheap, high-protein meal made in under twenty minutes using pantry staples.",
+      "prepTime": 20,
+      "ingredients": [
+        "eggs",
+        "feta cheese",
+        "pickled peppers",
+        "onion",
+        "sunflower oil"
+      ],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxap-MseMDUPDHsKDLcbWCiirDo-1tEHgE_eE2SKG14FXdPuVOrGx3t3jS_lpKASX4biK7ooJiE6PQmZHIGQz7xxBdOEGXjKx0h_4UHeNjig&s=10",
+      "detailedDescription": "Sauté finely chopped onions and pickled red peppers in a skillet. Fold in crumbled feta cheese, followed by well-beaten eggs. Scramble continuously over medium heat until fluffy and fully cooked.",
+      "tags": [
+        "quick",
+        "budget",
+        "eggs",
+        "balkan"
+      ],
+      "dateShared": "2026-05-18T12:40:00.000Z",
+      "modificationDate": "2026-05-18T12:40:00.000Z"
+    },
+    {
+      "id": "recipe-7",
+      "userId": "user-8",
+      "title": "Fluffy Vegan Banana Pancakes",
+      "description": "Delightful breakfast pancakes prepared without dairy or eggs, naturally sweetened with ripe bananas.",
+      "prepTime": 15,
+      "ingredients": [
+        "bananas",
+        "oat milk",
+        "rolled oats",
+        "baking powder",
+        "cinnamon"
+      ],
+      "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500",
+      "detailedDescription": "Blend all ingredients together until a smooth, velvety batter forms. Pour onto a lightly oiled, hot non-stick griddle pan. Cook for 2 minutes on each side. Serve warm with organic maple syrup.",
+      "tags": [
+        "breakfast",
+        "vegan",
+        "banana",
+        "sweet"
+      ],
+      "dateShared": "2026-05-18T13:05:00.000Z",
+      "modificationDate": "2026-05-18T13:05:00.000Z"
+    },
+    {
+      "id": "recipe-8",
+      "userId": "user-9",
+      "title": "Gourmet Homemade Beef Burger",
+      "description": "A juicy charbroiled beef patty nestled inside a toasted brioche bun with cheddar and bacon.",
+      "prepTime": 30,
+      "ingredients": [
+        "ground beef",
+        "brioche buns",
+        "cheddar cheese",
+        "bacon",
+        "pickles",
+        "mayo",
+        "ketchup"
+      ],
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500",
+      "detailedDescription": "Shape premium ground beef into thick patties and sear on a cast-iron skillet. Melt sharp cheddar on top. Crisp the bacon, toast your brioche buns, and stack high with pickles and custom secret burger sauce.",
+      "tags": [
+        "burger",
+        "beef",
+        "fast-food",
+        "main"
+      ],
+      "dateShared": "2026-05-18T13:30:00.000Z",
+      "modificationDate": "2026-05-18T13:30:00.000Z"
+    },
+    {
+      "id": "recipe-9",
+      "userId": "user-1",
+      "title": "Velvety Roasted Pumpkin Soup",
+      "description": "A smooth, warming autumn soup made from oven-roasted butternut squash, finished with heavy cream.",
+      "prepTime": 40,
+      "ingredients": [
+        "butternut squash",
+        "potatoes",
+        "carrots",
+        "cooking cream",
+        "nutmeg"
+      ],
+      "image": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=500",
+      "detailedDescription": "Boil roasted butternut squash pieces along with potatoes and carrots in vegetable broth. Puree with an immersion blender until completely silky, incorporate cooking cream, season with freshly grated nutmeg, and serve with pumpkin seeds.",
+      "tags": [
+        "soup",
+        "pumpkin",
+        "fall",
+        "vegetarian"
+      ],
+      "dateShared": "2026-05-18T14:00:00.000Z",
+      "modificationDate": "2026-05-18T14:00:00.000Z"
+    },
+    {
+      "id": "recipe-10",
+      "userId": "user-3",
+      "title": "Crispy Golden Chicken Tenders",
+      "description": "Super crunchy fried chicken breast strips double-coated in seasoned cornflakes crumbs.",
+      "prepTime": 35,
+      "ingredients": [
+        "chicken breast",
+        "eggs",
+        "flour",
+        "cornflakes",
+        "garlic powder"
+      ],
+      "image": "https://images.unsplash.com/photo-1562967914-608f82629710?w=500",
+      "detailedDescription": "Slice chicken fillets into even strips and toss with spices. Dredge them in all-purpose flour, dip into beaten eggs, and press firmly into crushed crunchy cornflakes. Deep fry until golden and crispy.",
+      "tags": [
+        "chicken",
+        "snack",
+        "crunchy",
+        "appetizer"
+      ],
+      "dateShared": "2026-05-18T14:30:00.000Z",
+      "modificationDate": "2026-05-18T14:30:00.000Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
